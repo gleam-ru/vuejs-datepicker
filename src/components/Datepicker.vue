@@ -48,6 +48,7 @@
       :mondayFirst="mondayFirst"
       :dayCellContent="dayCellContent"
       :use-utc="useUtc"
+      :style-for-day="styleForDay"
       @changedMonth="handleChangedMonthFromDayPicker"
       @selectDate="selectDate"
       @showMonthCalendar="showMonthCalendar"
@@ -153,7 +154,8 @@ export default {
     maximumView: {
       type: String,
       default: 'year'
-    }
+    },
+    styleForDay: Function
   },
   data () {
     const startDate = this.openDate ? new Date(this.openDate) : new Date()

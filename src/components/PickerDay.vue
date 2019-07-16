@@ -21,6 +21,7 @@
           v-for="day in days"
           :key="day.timestamp"
           :class="dayClasses(day)"
+          :style="styleForDay ? styleForDay(day) : ''"
           v-html="dayCellContent(day)"
           @click="selectDate(day)"></span>
     </div>
@@ -47,7 +48,8 @@ export default {
     translation: Object,
     isRtl: Boolean,
     mondayFirst: Boolean,
-    useUtc: Boolean
+    useUtc: Boolean,
+    styleForDay: Function
   },
   data () {
     const constructedDateUtils = makeDateUtils(this.useUtc)
